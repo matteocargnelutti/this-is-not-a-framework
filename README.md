@@ -4,7 +4,7 @@
 
 **A minimal, zero-dependency boilerplate for building single-page applications using Web Components.**
 
-**Current version:** 0.1 alpha
+**Current version:** 0.1 alpha, Work in progress.
 
 ---
 
@@ -16,7 +16,7 @@
 - [Navigation management](#navigation-management)
 - [Bundling the app](#bundling-the-app)
 - [Serving the app](#serving-the-app)
-- [Tips and resources](#tips-and-resources)
+- [Misc](#misc)
 
 ---
 
@@ -30,9 +30,11 @@ This boilerplate proposes a structure for building front-end web applications pr
 
 This is not in any way meant to be _"the optimal way"_ or even _"the right way"_ of doing so. Personal opinions and likings were most definitely a part of some of the choices made here, and this is clearly acknowledged.
 
-**This boilerplate was put together, nonetheless, with two main principles in mind:**
+**This boilerplate was put together, nonetheless, with a few principles in mind:**
 - **Simplicity**: 
 It has to be easy to understand, use and edit.
+- **Standard:**
+It must rely almost exclusively on features that are part of web standards specifications.
 - **Independence**: 
 It must not require any third-party software package to be used, besides a JavaScript runtime. No package.json, no Pipfile.
 
@@ -67,6 +69,8 @@ Then open your browser and go to `http://localhost:8080`.
 **If all went well, the default demo app should be accessible:**
 > ![DEMO app working](github/demo-app-working.gif)
 
+See [this demo live](https://this-is-not-a-framework-basic-demo.netlify.app).
+
 ### Learning
 We encourage you to start editing files of the default demo app to see how the boilerplate functions. Understanding a bit of JavaScript, and how [Custom Elements](https://javascript.info/custom-elements) work is recommended to help in that process.
 
@@ -87,9 +91,14 @@ At the core of the boilerplate is [`<app-root>`](src/AppRoot.js), a custom eleme
 The global HTML structure of the app is handled by `<app-root>`, and can be edited directly in [`AppRoot.renderInnerHTML()`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L68).
 
 ### ⚙️ Components
-Components live under the `src/components` folder. You can create as many components as you like.
+Components are independent [Custom Elements](https://javascript.info/custom-elements) that live ubder the `src/components` folder. They are the building blocks of your app.
 
-The structure that was chosen for this boilerplate is to generate the components' HTML within a `renderInnerHTML()` method, called at least once when the component is added to the page. The CSS for this component lives on a separate file. 
+The structure that was chosen for this boilerplate's elements is to generate the components' HTML within a `renderInnerHTML()` method, called at least once when the component is added to the page, and to store the CSS for this component in a separate, dedicated file.
+
+```
+- MyComponent.js # Component structure and logic
+* MyComponent.css # Component styling
+```
 
 **Explore example of components:**
 - [AppHeader](src/components/AppHeader.js)
@@ -199,9 +208,9 @@ In the spirit of providing a dependency-free boilerplate, `This is not a framewo
 - CSS and JS minification
 - Transpiling to ES5
 - Injecting polyfills
-- Offer a _"watch"_ mode so bundles are re-built on the fly when a file is edited
+- Offer a _"watch"_ mode so bundles are re-built on the fly whenever a file is edited
 
-As usual, you are encouraged to use a dedicated bundler to match your needs.
+As usual, you are encouraged to use a dedicated bundler as required to match your needs.
 
 In some cases **you might not want to use a bundler at all** and directly import various sources, either via `<script>` tags in `index.html`
 
@@ -233,14 +242,18 @@ Make sure your [app bundle is built](#bundling-the-app) and run the following.
 
 ### Limitations
 - This is an extremely basic HTTP server and should only be used for development purposes.
-- You are encouraged to upgrade to a third-party package with live-reload and local HTTPS support as needed.
+- You are encouraged to upgrade to a third-party package with live-reload and local HTTPS support as required.
 
 _☝️ [Back to summary](#summary)_
 
 ---
 
-## Tips and resources
-- [VSCode extension to have syntax highlighting for HTML in JavaScript template strings](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
-- [Web Components Tutorials](https://javascript.info/web-components)
+## Misc
+- Please use [GitHub issues](https://github.com/matteocargnelutti/this-is-not-a-framework/issues) for bug reports and features requests.
+- [VSCode extension to enable syntax highlighting for HTML in JavaScript template strings](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
+- [Web Components Tutorials on JavaScript.info](https://javascript.info/web-components)
+- [Follow me on Twitter, @macargnelutti](https://twitter.com/macargnelutti)
+- [Live demo of the default app](https://this-is-not-a-framework-basic-demo.netlify.app).
+
 
 _☝️ [Back to summary](#summary)_
