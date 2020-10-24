@@ -235,8 +235,12 @@ Make sure your [app bundle is built](#bundling-the-app) and run the following.
 - This is an extremely basic HTTP server and should only be used for development purposes.
 - You are encouraged to upgrade to a third-party package with live-reload and local HTTPS support as needed.
 
+_☝️ [Back to summary](#summary)_
+
 ---
 
 ## Tips and resources
 - [VSCode extension to have syntax highlighting for HTML in JavaScript template strings](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
 - [Web Components Tutorials](https://javascript.info/web-components)
+
+_☝️ [Back to summary](#summary)_
