@@ -52,7 +52,7 @@ We also recommend using a UNIX-like system such as Mac OS or Linux, or the Windo
 ### Setting up the boilerplate
 In a terminal, browse to the folder you want to set your project in, and run the following command to download and execute the [setup script](setup.sh):
 ```bash
-curl https://raw.githubusercontent.com/matteocargnelutti/this-is-not-a-framework/master/setup.sh > setup.sh && chmod a+x setup.sh && ./setup.sh
+curl https://raw.githubusercontent.com/matteocargnelutti/this-is-not-a-framework/main/setup.sh > setup.sh && chmod a+x setup.sh && ./setup.sh
 ```
 
 ### Checking that the boilerplate works
@@ -80,11 +80,11 @@ _☝️ [Back to summary](#summary)_
 ### 🌲 The Application Root
 At the core of the boilerplate is [`<app-root>`](src/AppRoot.js), a custom element whose role is to be the parent of the entire application, [handle a global state](#state-management) and [basic navigation](#navigation-management).
 
-[`index.html`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/index.html) includes an `<app-root>` tag, which triggers the creation of said element and executes the app's logic.
+[`index.html`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/index.html) includes an `<app-root>` tag, which triggers the creation of said element and executes the app's logic.
 
 > ![Structure of `<app-root>` with nested components](github/app-root-structure.png)
 
-The global HTML structure of the app is handled by `<app-root>`, and can be edited directly in [`AppRoot.renderInnerHTML()`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/AppRoot.js#L68).
+The global HTML structure of the app is handled by `<app-root>`, and can be edited directly in [`AppRoot.renderInnerHTML()`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L68).
 
 ### ⚙️ Components
 Components live under the `src/components` folder. You can create as many components as you like.
@@ -154,14 +154,14 @@ myElement.addEventListener('StateManagerUpdate', this.doSomethingOnGlobalStateUp
 `<app-root>` contains, by default, an instance of `StateManager` that can be used for global state management. From anywhere within the app, it is possible, via `document`, to access the `state` property of `<app-root>` to access shared data.
 
 **See:**
-- [Default, global state definition in `<app-root>`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/AppRoot.js#L14)
-- Example of a component listening to changes in `<app-root>`'s state: [[1]](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/components/AppHeader.js#L17) [[2]](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/components/AppHeader.js#L29)
+- [Default, global state definition in `<app-root>`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L14)
+- Example of a component listening to changes in `<app-root>`'s state: [[1]](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/components/AppHeader.js#L17) [[2]](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/components/AppHeader.js#L29)
 
 ### Example of component-level state management
 It is possible to create one or multiple `StateManager` instances attached to a given custom element. This is useful for component-level state management, when it does not make sense to share state across components.
 
 **See:**
-- [Example of a `StateManager` used at component-level](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/components/AppFooter.js#L23).
+- [Example of a `StateManager` used at component-level](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/components/AppFooter.js#L23).
 
 ### Using a different state manager
 `StateManager` is provided for simplicity and out-of-the-box convenience. You are encouraged to replace it with more complex state management solutions if needed.
@@ -177,7 +177,7 @@ This boilerplate offers a simplistic hash-based navigation system out of the box
 **For example:**
 If current URL contains `/#!/contact-us`, `<app-root>` will make sure that the `<screen-contact-us>` element exists and, if so, clear `app-root > main` and inject a `<screen-contact-us>` tag there.
 
-This logic is defined in [`<app-root>`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/src/AppRoot.js#L83) and can be extended / edited / removed at will.
+This logic is defined in [`<app-root>`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L83) and can be extended / edited / removed at will.
 
 As for the other out-of-the-box features of this boilerplate, this will likely not cover all uses cases, and you are encouraged to use a more sturdy custom navigation system to cover specific needs.
 
@@ -187,7 +187,7 @@ _☝️ [Back to summary](#summary)_
 
 ## Bundling the app
 
-In the spirit of providing a dependency-free boilerplate, `This is not a framework` comes with an extremely basic JavaScript and CSS bundler, [`bundler.js`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/bundler.js).
+In the spirit of providing a dependency-free boilerplate, `This is not a framework` comes with an extremely basic JavaScript and CSS bundler, [`bundler.js`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/bundler.js).
 
 
 ### What this bundler does
@@ -222,7 +222,7 @@ _☝️ [Back to summary](#summary)_
 
 ## Serving the app
 
-The boilerplate comes with [`serve.sh`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/master/serve.sh), a quick shortcut serve the app locally via HTTP, with the help of Python's `http.server` package.
+The boilerplate comes with [`serve.sh`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/serve.sh), a quick shortcut serve the app locally via HTTP, with the help of Python's `http.server` package.
 
 ### Usage
 Make sure your [app bundle is built](#bundling-the-app) and run the following.
