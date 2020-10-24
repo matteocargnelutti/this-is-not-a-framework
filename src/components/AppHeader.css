@@ -1,0 +1,13 @@
+app-header {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #a000ff;
+  color: white;
+}
+
+app-header h1 {
+  letter-spacing: -0.15rem;
+  font-size: 4rem;
+}

@@ -1,0 +1,67 @@
+/**
+ * CSS Reset and base rules set
+*/
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html { 
+  font-size: 16px;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: sans-serif;
+}
+
+a {
+  color: #6900a7;
+}
+
+/**
+ * Generic screen-related styles
+*/
+app-root {
+  display: block;
+}
+
+app-root > main {
+  max-width: 100ch;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+app-root > main p, app-root > main h2 {
+  margin-bottom: 1rem;
+}
+screen-index {
+  display: block;
+  padding: 0.5rem;
+}
+screen-inner {
+  display: block;
+  padding: 0.5rem;
+}
+app-footer {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
+app-header {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #a000ff;
+  color: white;
+}
+
+app-header h1 {
+  letter-spacing: -0.15rem;
+  font-size: 4rem;
+}
