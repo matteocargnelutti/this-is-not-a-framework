@@ -92,7 +92,7 @@ At the core of the boilerplate is [`<app-root>`](src/AppRoot.js), a custom eleme
 
 The global HTML structure of the app is handled by `<app-root>`, and can be edited directly in [`AppRoot.renderInnerHTML()`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L68).
 
-There should be only one instance of `<app-root>` per application.
+There should be only one instance of `<app-root>` per application: this behavior [will be enforced by default](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L41).
 
 ### ⚙️ Components
 Components are independent [Custom Elements](https://javascript.info/custom-elements) that live ubder the `src/components` folder. They are the building blocks of your app.
@@ -101,7 +101,7 @@ The structure that was chosen for this boilerplate's elements is to generate the
 
 ```
 - MyComponent.js # Component structure and logic
-* MyComponent.css # Component styling
+- MyComponent.css # Component styling
 ```
 
 **Explore example of components:**
@@ -159,7 +159,7 @@ Upon write access on `someRandomCounter`, a `StateManagerUpdate` event will be f
 The fact that `StateManager` fires events when data changes allows other parts of the component or the app to react to changes in state:
 
 ```javascript
-let myElement = this.querySelector('my-element');
+let myElement = this.querySelector('parent > my-element');
 myElement.addEventListener('StateManagerUpdate', this.doSomethingOnGlobalStateUpdate.bind(this));
 ```
 
@@ -196,7 +196,7 @@ This logic is defined in [`<app-root>`](https://github.com/matteocargnelutti/thi
 As for the other out-of-the-box features of this boilerplate, this will likely not cover all uses cases, and you are encouraged to use a more sturdy custom navigation system to cover specific needs.
 
 ### Taking control
-The `changeScreen(screenName)` method of `<app-root>` can be called directly to switch to a specific screen, without using hash-based navigation:
+The `changeScreen(screenName)` method of `<app-root>` can be called directly to switch to a specific screen without using hash-based navigation:
 
 ```javascript
 let appRoot = document.querySelector('app-root');
