@@ -125,7 +125,7 @@ _☝️ [Back to summary](#summary)_
 
 ## State Management
 
-This boilerplate comes [with a simple state manager](src/utils/StateManager.js) that can be used to allow custom elements to hold and share, but also react to changes in state.
+This boilerplate comes [with a simple state manager](src/utils/StateManager.js) that can be used to allow custom elements to hold and share data, but also react to changes in state.
 
 ### How it works
 [`StateManager`](src/utils/StateManager.js) takes and holds and object that is considered a state. 
