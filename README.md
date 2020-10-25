@@ -92,6 +92,8 @@ At the core of the boilerplate is [`<app-root>`](src/AppRoot.js), a custom eleme
 
 The global HTML structure of the app is handled by `<app-root>`, and can be edited directly in [`AppRoot.renderInnerHTML()`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L68).
 
+There should be only one instance of `<app-root>` per application.
+
 ### ⚙️ Components
 Components are independent [Custom Elements](https://javascript.info/custom-elements) that live ubder the `src/components` folder. They are the building blocks of your app.
 
@@ -123,7 +125,7 @@ _☝️ [Back to summary](#summary)_
 
 ## State Management
 
-This boilerplate comes [with a simple state manager](src/utils/StateManager.js) that can be used to allow custom elements to hold and share data, and react to changes in state.
+This boilerplate comes [with a simple state manager](src/utils/StateManager.js) that can be used to allow custom elements to hold and share, but also react to changes in state.
 
 ### How it works
 [`StateManager`](src/utils/StateManager.js) takes and holds and object that is considered a state. 
@@ -183,6 +185,7 @@ _☝️ [Back to summary](#summary)_
 
 ## Navigation Management
 
+### Default behavior
 This boilerplate offers a simplistic hash-based navigation system out of the box: Every screen element defined under `src/screens`, is accessible via a `/#!/` URI.
 
 **For example:**
@@ -191,6 +194,14 @@ If current URL contains `/#!/contact-us`, `<app-root>` will make sure that the `
 This logic is defined in [`<app-root>`](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L83) and can be extended / edited / removed at will.
 
 As for the other out-of-the-box features of this boilerplate, this will likely not cover all uses cases, and you are encouraged to use a more sturdy custom navigation system to cover specific needs.
+
+### Taking control
+The `changeScreen(screenName)` method of `<app-root>` can be called directly to switch to a specific screen, without using hash-based navigation:
+
+```javascript
+let appRoot = document.querySelector('app-root');
+appRoot.changeScreen('screen-test');
+```
 
 _☝️ [Back to summary](#summary)_
 
