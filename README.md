@@ -148,8 +148,8 @@ Upon write access on `someRandomCounter`, a `StateManagerUpdate` event will be f
 ```javascript
 {
   'stateManagerName': 'MyElementState'
+  'updatedPropertyPath': 'data' // Example of more complex path: data.object1.object2.object3
   'updatedProperty': 'someRandomCounter',
-  'updatedPropertyPath': 'data'
   'newValue': 1,
   'previousState': {someRandomCounter: 0},
   'newState': {someRandomCounter: 1}
