@@ -95,7 +95,7 @@ The global HTML structure of the app is handled by `<app-root>`, and can be edit
 There should be only one instance of `<app-root>` per application: this behavior [will be enforced by default](https://github.com/matteocargnelutti/this-is-not-a-framework/blob/main/src/AppRoot.js#L41).
 
 ### ⚙️ Components
-Components are independent [Custom Elements](https://javascript.info/custom-elements) that live ubder the `src/components` folder. They are the building blocks of your app.
+Components are independent [Custom Elements](https://javascript.info/custom-elements) that live under the `src/components` folder. They are the building blocks of your app.
 
 The structure that was chosen for this boilerplate's elements is to generate the components' HTML within a `renderInnerHTML()` method, called at least once when the component is added to the page, and to store the CSS for this component in a separate, dedicated file.
 
