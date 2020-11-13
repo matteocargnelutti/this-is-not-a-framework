@@ -1,5 +1,3 @@
-> Work in progress ⚠️
-
 # 🙅 This is not a framework
 
 ![This is not a framework's logo.](github/logo.png)
@@ -26,7 +24,7 @@
 
 This boilerplate proposes a structure for building front-end web applications projects using [Custom Elements](https://javascript.info/custom-elements), a feature that is part of the [Web Components specification](https://www.webcomponents.org/specs).
 
-**Custom Elements are extremely powerful**, in that they allow to create HTML elements with self-contained logic and styling. They are [well supported by modern browsers](https://caniuse.com/custom-elementsv1), [simple to use](https://javascript.info/custom-elements), and since they are available out of the box, [using them generally results in much smaller JavaScript bundles](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/), compared to JavaScript frameworks.
+**Custom Elements are extremely powerful**, in that they allow the creation of HTML elements with self-contained logic and styling. They are [well supported by modern browsers](https://caniuse.com/custom-elementsv1), [simple to use](https://javascript.info/custom-elements), and since they are available out of the box, [using them generally results in much smaller JavaScript bundles](https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/), compared to JavaScript frameworks.
 
 **The architecture proposed in this boilerplate is one of the many, many possible ways a single-page web application could be built using Web Components**. 
 
@@ -106,7 +104,7 @@ The structure that was chosen for this boilerplate's elements is to generate the
 
 **Explore example of components:**
 - [AppHeader](src/components/AppHeader.js)
-- [AppFoter](src/components/AppFooter.js)
+- [AppFooter](src/components/AppFooter.js)
 
 ### 📺 Screens
 In the context of this boilerplate, screens are a specialized type of component:
