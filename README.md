@@ -1,3 +1,5 @@
+> ⚠️ **Early version**
+
 # 🙅 This is not a framework
 
 ![This is not a framework's logo.](github/logo.png)
@@ -149,8 +151,9 @@ Upon write access on `someRandomCounter`, a `StateManagerUpdate` event will be f
   'updatedPropertyPath': 'data' // Example of more complex path: data.object1.object2.object3
   'updatedProperty': 'someRandomCounter',
   'newValue': 1,
-  'previousState': {someRandomCounter: 0},
-  'newState': {someRandomCounter: 1}
+  // The two following properties are only added if the `StateManager.provideStateCopy` is set to `true`
+  'previousState': {someRandomCounter: 0}, // Copy of the state before the update
+  'newState': {someRandomCounter: 1} // Copy of the state after the update
 }
 ```
 

@@ -139,11 +139,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 /**
  * @class StateManager 
- * @description State Manager utility for custom HTML elements. Holds data, uses a proxy to fire events on update, allowing components to react to changes.
+ * @description State Manager utility for custom HTML elements. Holds data, uses a proxy to fire events on update, allowing components to react to changes by reacting to a `StateManagerUpdate` event.
  * 
  * @property {HTMLElement} parent - Element using this state, or any object with a dispatchEvent method. State update events will be fired from this context.
  * @property {String} name - Name of this state manager instance. Used for identifying events.
  * @property {any} data - Current set of data held by the state manager (proxied).
+ * @property {Boolean} provideStateCopy - If true, each StateManagerUpdate event will provide a copy of the previous and new state. De-activated by default.
  * @property {Boolean} updateEventBubbles - Determines if the event fired on update should bubble up. Defaults to true.
  * @property {Boolean} updateEventIsComposed - Determined if the event fired on update should be composed. Defaults to true.
  * 
@@ -169,6 +170,7 @@ class StateManager {
 
     // Settings and identification related properties
     this.name = String(name);
+    this.provideStateCopy = false;
     this.updateEventBubbles = true;
     this.updateEventIsComposed = true;
 
@@ -239,14 +241,20 @@ class StateManager {
    */
   __write(object, property, newValue) {
 
-    // Keep a copy of the soon-to-be previous state
-    let previousState = this.__deepCopy(this.__data);
+    // If requested, keep a copy of the soon-to-be previous state
+    let previousState = null;
+    if( this.provideStateCopy ) {
+      previousState = this.__deepCopy(this.__data);
+    }
 
     // Update wanted property in state
     object[property] = newValue;
 
-    // Create a copy of the new state
-    let newState = this.__deepCopy(this.__data);
+    // If requested, keep a copy of the new state
+    let newState = null;
+    if( this.provideStateCopy ) {
+      newState = this.__deepCopy(this.__data);
+    }
 
     // Fire an event so the rest of the app can be informed and observe changes in state.
     // Provides a copy of both the previous and new state.
@@ -257,11 +265,15 @@ class StateManager {
         'stateManagerName': this.name,
         'updatedProperty': property,
         'updatedPropertyPath': this.propertyPath,
-        'newValue': newValue,
-        'previousState': previousState,
-        'newState': newState
+        'newValue': newValue
       }
     });
+
+    // Add previousState / newState if those were requested.
+    if( this.provideStateCopy ) {
+      event.detail.previousState = previousState;
+      event.detail.newState = newState;
+    }
 
     this.parent.dispatchEvent(event);
 
