@@ -1,12 +1,11 @@
-> ⚠️ **Early version**
-
 # 🙅 This is not a framework
 
 ![This is not a framework's logo.](github/logo.png)
 
 **A minimal, zero-dependency boilerplate for building single-page applications using Web Components.**
 
-**Current version:** 0.1 alpha.
+**Current version:** 0.1 alpha. 
+> ⚠️ **Early version. Use with caution.**
 
 ---
 
